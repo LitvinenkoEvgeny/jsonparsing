@@ -14,13 +14,19 @@ class Players(object):
     def print_result(self):
         with open(self.filename, "a") as f:
             for x in self.resp.items():
+
                 full_name = x[1][u"full_name"]
+
+                try:
+                    team = x[1][u"team"]
+                except KeyError:
+                    team = "FA"
                 try:
                     position = x[1][u"position"]
-                    team = x[1][u"team"]
-                    f.write(u"{} - {} ({})\n".format(full_name, position, team))
                 except KeyError:
-                    continue
+                    position = "unknown"
+
+                f.write(u"{} - {} ({})\n".format(full_name, position, team))
 
 
 if __name__ == "__main__":
