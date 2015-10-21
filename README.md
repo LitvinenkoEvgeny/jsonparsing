@@ -1,1 +1,1 @@
-# Usage: python upworkjson.py filename.txt
+Usage: python upworkjson.py filename.txt
